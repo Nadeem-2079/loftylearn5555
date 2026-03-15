@@ -37,7 +37,7 @@ const s = {
 export default function RegisterPage({ workshop, onSubmit }) {
   const handleFocus = (e) => {
     e.currentTarget.style.borderColor = T.green;
-    e.currentTarget.style.background = "rgba(93,214,44,0.02)";
+    e.currentTarget.style.background = "rgba(197, 209, 199,0.02)";
   };
   const handleBlur = (e) => {
     e.currentTarget.style.borderColor = T.border;

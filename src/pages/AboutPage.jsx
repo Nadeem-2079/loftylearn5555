@@ -2,7 +2,7 @@ import React from "react";
 import { INSTRUCTORS } from "../data/instructors";
 import InstructorCard from "../components/ui/InstructorCard";
 import Eyebrow from "../components/primitives/Eyebrow";
-import GridBg from "../components/primitives/GridBg";
+
 import { T } from "../styles/tokens";
 
 const s = {
@@ -39,7 +39,7 @@ export default function AboutPage() {
       {/* HERO SECTION */}
       <section style={{ padding: "160px 24px 100px", textAlign: "center", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", top: -100, left: "50%", transform: "translateX(-50%)", width: "70vw", height: "70vw", background: `radial-gradient(circle, ${T.green}15 0%, transparent 60%)`, pointerEvents: "none", zIndex: 0 }} />
-        <GridBg opacity={0.06} />
+
         <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <Eyebrow>About LoftyLearn</Eyebrow>
           <h1 style={{ ...s.display(64), marginTop: 24, marginBottom: 32, letterSpacing: "-0.05em" }}>
@@ -122,44 +122,36 @@ export default function AboutPage() {
           <h2 style={{ ...s.display(48), marginTop: 16 }}>Meet Our Founder</h2>
         </div>
         <div className="mob-col" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: 60, alignItems: "center" }}>
-          <div style={{ textAlign: "center" }}>
-            <div style={{
-              width: 200,
-              height: 200,
-              borderRadius: "50%",
-              background: `linear-gradient(135deg, ${T.green} 0%, #76E05B 100%)`,
-              margin: "0 auto 24px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 72,
-              fontWeight: 800,
-              color: T.black
-            }}>
-              AL
+
+          {/* Founder Image */}
+          <div style={{ position: "relative", width: 340, height: 420, margin: "0 auto", borderRadius: 24, overflow: "hidden", border: `1px solid ${T.borderHi}`, boxShadow: `0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(197,209,199,0.15)` }}>
+            <img src="/founder.jpg" alt="Dr. Aravindhan" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: 24, background: "linear-gradient(to top, rgba(11,43,16,0.95) 0%, rgba(11,43,16,0.6) 50%, transparent 100%)" }}>
+              <h3 style={{ ...s.display(24), marginBottom: 4 }}>Dr. Aravindhan</h3>
+              <p style={{ color: T.green, fontSize: 13, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase" }}>Founder & Lead Architect</p>
             </div>
-            <h3 style={{ ...s.display(28), marginBottom: 8 }}>Alexandra Liu</h3>
-            <p style={{ color: T.green, fontSize: 16, fontWeight: 600 }}>Founder & CEO</p>
           </div>
+
+          {/* Founder Content */}
           <div>
             <div style={{ ...s.card(), marginBottom: 24 }}>
               <p style={{ fontSize: 16, color: T.muted, lineHeight: 1.7, marginBottom: 20 }}>
-                Alexandra Liu is a seasoned embedded systems engineer with over 15 years of experience
-                at leading semiconductor companies. She holds a PhD in Electrical Engineering from UC Berkeley
-                and has contributed to projects ranging from autonomous vehicle systems to medical devices.
+                Dr. Aravindhan is a seasoned embedded systems engineer and systems architect with over a decade of experience
+                building high-performance hardware and software ecosystems. He has successfully driven innovation in
+                projects ranging from raw bare-metal firmware design to sophisticated real-time operating systems.
               </p>
               <p style={{ fontSize: 16, color: T.muted, lineHeight: 1.7 }}>
-                Frustrated by the lack of comprehensive, practical training in embedded systems, Alexandra
-                founded LoftyLearn in 2020 to create a platform that combines rigorous academic depth with
-                industry-relevant projects. Her vision is to train the next generation of systems architects
-                who can bridge the gap between hardware and software.
+                Driven by a profound passion to bridge the gaping divide between theoretical computer science and practical,
+                industry-level engineering, Dr. Aravindhan founded LoftyLearn. His vision is clear: to train the next
+                generation of elite systems engineers who don't just write code, but actually architect the soul of the machine.
               </p>
             </div>
-            <div style={{ ...s.card(), background: `linear-gradient(135deg, rgba(93,214,44,0.05) 0%, rgba(93,214,44,0.02) 100%)`, borderColor: T.green + "33" }}>
+
+            <div style={{ ...s.card(), background: `linear-gradient(135deg, rgba(197, 209, 199,0.05) 0%, rgba(197, 209, 199,0.01) 100%)`, borderColor: `rgba(197, 209, 199, 0.2)` }}>
               <blockquote style={{ fontSize: 18, fontStyle: "italic", color: T.white, lineHeight: 1.6, marginBottom: 16 }}>
-                "The future belongs to those who understand both the elegance of algorithms and the harsh realities of hardware constraints."
+                "The future belongs to those who understand both the elegance of algorithms and the harsh physical realities of hardware constraints."
               </blockquote>
-              <cite style={{ fontSize: 14, color: T.green, fontWeight: 600 }}>— Alexandra Liu</cite>
+              <cite style={{ fontSize: 14, color: T.green, fontWeight: 600 }}>— Dr. Aravindhan</cite>
             </div>
           </div>
         </div>

@@ -1,17 +1,18 @@
 export const T = {
-  black: "#0F0F0F",
-  surface: "#202020",
-  surface2: "#2a2a2a",
-  surface3: "#333333",
+  black: "#0b2b10",
+  surface: "#114218",
+  surface2: "#195c24",
+  surface3: "#207328",
 
-  green: "#5DD62C",
-  forest: "#337418",
+  green: "#C5D1C7",
+  forest: "#98A699",
+  primaryGrad: "linear-gradient(135deg, #E6ECE7 0%, #A9B8AB 100%)",
 
-  white: "#F8F8F8",
+  white: "#F0F4F1",
 
-  muted: "#A0A0A0",
-  muted2: "#666666",
+  muted: "#899E8C",
+  muted2: "#627865",
 
-  border: "rgba(248,248,248,0.08)",
-  borderHi: "rgba(93,214,44,0.25)",
+  border: "rgba(197, 209, 199, 0.15)",
+  borderHi: "rgba(197, 209, 199, 0.4)",
 };

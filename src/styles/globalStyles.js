@@ -10,15 +10,15 @@ export const GLOBAL_CSS = `
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #0F0F0F;
-  color: #F8F8F8;
+  background: #0b2b10;
+  color: #F0F4F1;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #5DD62C;
-  color: #0F0F0F;
+  background: #C5D1C7;
+  color: #0b2b10;
 }
 
 ::-webkit-scrollbar {
@@ -26,16 +26,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F0F0F;
+  background: #0b2b10;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #195c24;
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5DD62C;
+  background: #C5D1C7;
 }
 
 a {
@@ -127,7 +127,7 @@ input, select, textarea {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(93,214,44,0.25) !important;
+  border-color: rgba(197,209,199,0.25) !important;
   box-shadow: 0 12px 40px rgba(0,0,0,0.6);
 }
 

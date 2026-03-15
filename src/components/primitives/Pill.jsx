@@ -16,13 +16,13 @@ export default function Pill({ children, green }) {
         letterSpacing: "0.02em",
 
         background: green
-          ? "rgba(93,214,44,0.1)"
+          ? "rgba(197, 209, 199,0.1)"
           : "rgba(248,248,248,0.06)",
 
         color: green ? T.green : T.muted,
 
         border: `1px solid ${
-          green ? "rgba(93,214,44,0.2)" : T.border
+          green ? "rgba(197, 209, 199,0.2)" : T.border
         }`,
       }}
     >

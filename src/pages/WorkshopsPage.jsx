@@ -3,7 +3,7 @@ import { WORKSHOPS } from "../data/workshops";
 import WorkshopCard from "../components/ui/WorkshopCard";
 import { T } from "../styles/tokens";
 import Eyebrow from "../components/primitives/Eyebrow";
-import GridBg from "../components/primitives/GridBg";
+
 
 const s = {
   display: (size = 32, extra = {}) => ({
@@ -21,7 +21,7 @@ const s = {
     gap: 8,
     padding: "6px 12px",
     borderRadius: 100,
-    background: "rgba(93,214,44,0.1)",
+    background: "rgba(197, 209, 199,0.1)",
     border: `1px solid ${T.green}33`,
     fontSize: 12,
     fontWeight: 700,
@@ -36,7 +36,7 @@ export default function WorkshopsPage({ toast, onRegister }) {
 
   return (
     <div style={{ background: T.bg, minHeight: "100vh", position: "relative" }}>
-      <GridBg opacity={0.03} />
+
 
       <div style={{ padding: "80px 24px", maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
@@ -67,7 +67,7 @@ export default function WorkshopsPage({ toast, onRegister }) {
                 <div style={{ display: "flex", gap: 16 }}>
                   <button
                     onClick={() => onRegister(featured)}
-                    style={{ padding: "14px 28px", borderRadius: 12, background: T.green, color: T.black, fontWeight: 700, border: "none", cursor: "pointer" }}
+                    style={{ padding: "14px 28px", borderRadius: 12, background: T.primaryGrad, color: T.black, fontWeight: 700, border: "none", cursor: "pointer", boxShadow: `0 8px 24px rgba(197, 209, 199,0.2)` }}
                   >
                     Secure Your Spot
                   </button>
@@ -107,7 +107,7 @@ export default function WorkshopsPage({ toast, onRegister }) {
         </section>
 
         {/* BOTTOM NOTIFY BOX */}
-        <section style={{ marginTop: 80, padding: 60, borderRadius: 24, background: `linear-gradient(135deg, ${T.surface} 0%, rgba(93,214,44,0.05) 100%)`, border: `1px solid ${T.border}`, textAlign: "center" }}>
+        <section style={{ marginTop: 80, padding: 60, borderRadius: 24, background: `linear-gradient(135deg, ${T.surface} 0%, rgba(197, 209, 199,0.05) 100%)`, border: `1px solid ${T.border}`, textAlign: "center" }}>
           <h3 style={s.display(28, { marginBottom: 12 })}>Missing a topic?</h3>
           <p style={{ color: T.muted, marginBottom: 24 }}>Suggest a workshop or request a private team training session.</p>
           <button style={{ background: "transparent", border: `1px solid ${T.white}`, color: T.white, padding: "12px 24px", borderRadius: 10, fontWeight: 600, cursor: "pointer" }}>

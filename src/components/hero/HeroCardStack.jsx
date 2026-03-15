@@ -35,8 +35,8 @@ export default function HeroCardStack() {
             <div style={{ height:"100%", width:"68%", background:T.green, borderRadius:2 }} />
           </div>
           {[{t:"Neural Network Intro",done:true},{t:"Regression Models",done:true},{t:"Deep Learning Basics",done:false,current:true}].map(l => (
-            <div key={l.t} style={{ display:"flex", alignItems:"center", gap:9, padding:"7px 9px", borderRadius:6, marginBottom:4, fontSize:12.5, background: l.current ? "rgba(93,214,44,0.06)" : T.surface2, border:`1px solid ${l.current ? "rgba(93,214,44,0.2)" : "transparent"}`, color: l.done ? T.muted2 : T.white }}>
-              <div style={{ width:18, height:18, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:9, flexShrink:0, background: l.done ? T.green : "transparent", border: l.done ? "none" : l.current ? `1.5px solid rgba(93,214,44,0.4)` : `1.5px solid ${T.border}`, color: l.done ? T.black : T.green, fontWeight:700 }}>{l.done ? "✓" : l.current ? "▶" : ""}</div>
+            <div key={l.t} style={{ display:"flex", alignItems:"center", gap:9, padding:"7px 9px", borderRadius:6, marginBottom:4, fontSize:12.5, background: l.current ? "rgba(197, 209, 199,0.06)" : T.surface2, border:`1px solid ${l.current ? "rgba(197, 209, 199,0.2)" : "transparent"}`, color: l.done ? T.muted2 : T.white }}>
+              <div style={{ width:18, height:18, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center", fontSize:9, flexShrink:0, background: l.done ? T.green : "transparent", border: l.done ? "none" : l.current ? `1.5px solid rgba(197, 209, 199,0.4)` : `1.5px solid ${T.border}`, color: l.done ? T.black : T.green, fontWeight:700 }}>{l.done ? "✓" : l.current ? "▶" : ""}</div>
               {l.t}
             </div>
           ))}

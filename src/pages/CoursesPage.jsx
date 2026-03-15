@@ -29,11 +29,11 @@ const s = {
     display: "inline-block",
     transform: "rotate(-1.5deg)",
     borderRadius: "4px",
-    boxShadow: "0 4px 15px rgba(93, 214, 44, 0.3)"
+    boxShadow: "0 4px 15px rgba(197, 209, 199, 0.3)"
   },
   // Filter Panel (Reverted to original dark/blurred style)
   filterPanel: {
-    background: "rgba(20, 20, 20, 0.6)",
+    background: "rgba(11, 43, 16, 0.8)",
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
     borderRadius: 24,
@@ -113,7 +113,7 @@ export default function CoursesPage({ onCourse }) {
             <span style={s.headingHighlight}>All Courses</span>
           </h1>
           <div style={{ ...s.mono(12), color: "#888", marginTop: 24 }}>
-            System Integrity Check: <span style={{ color: "#000", fontWeight: 800 }}>{filtered.length} UNITS_AVAILABLE</span>
+            System Integrity Check: <span style={{ color: T.white, fontWeight: 800 }}>{filtered.length} UNITS_AVAILABLE</span>
           </div>
         </div>
 
@@ -154,7 +154,7 @@ export default function CoursesPage({ onCourse }) {
               <span style={{ ...s.display(16), fontWeight: 900, color: "#FFF", textTransform: "uppercase" }}>Filters</span>
               <span
                 style={{ fontSize: 11, color: T.green, cursor: "pointer", fontWeight: 800, padding: "4px 8px", borderRadius: 6, transition: "background 0.2s" }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(93,214,44,0.1)"}
+                onMouseEnter={e => e.currentTarget.style.background = "rgba(197, 209, 199,0.1)"}
                 onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                 onClick={() => setFilters({ cat: [], lvl: [], price: [] })}
               >

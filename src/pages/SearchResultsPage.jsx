@@ -6,7 +6,7 @@ import WorkshopCard from "../components/ui/WorkshopCard";
 import { T } from "../styles/tokens";
 
 const s = {
-  display: (size=32, extra={}) => ({ fontFamily:"'Poppins',sans-serif", fontSize:size, fontWeight:800, letterSpacing:"-0.04em", color:T.white, lineHeight:1.08, ...extra }),
+  display: (size=32, extra={}) => ({ fontFamily:"'Syne',sans-serif", fontSize:size, fontWeight:800, letterSpacing:"-0.04em", color:T.white, lineHeight:1.08, ...extra }),
   mono: (size=12, extra={}) => ({ fontFamily:"'Roboto Mono',monospace", fontSize:size, ...extra }),
 };
 

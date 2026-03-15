@@ -1,7 +1,7 @@
 import React from "react";
 import { COURSES } from "../data/courses";
 import { T } from "../styles/tokens";
-import GridBg from "../components/primitives/GridBg";
+
 import Eyebrow from "../components/primitives/Eyebrow";
 
 const s = {
@@ -75,7 +75,7 @@ export default function DashboardPage({ user, enrolled, saved, badges, streak, o
   if (!user) {
     return (
       <div style={{ padding: "120px 24px", textAlign: "center", position: "relative" }}>
-        <GridBg opacity={0.05} />
+        
         <h1 style={s.display(48, { marginBottom: 16 })}>Your Journey Starts Here</h1>
         <p style={{ fontSize: 18, color: T.muted, marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Sign in to access your personalized learning path, track streaks, and earn industry-recognized badges.</p>
         <button style={s.btnPrimary({ padding: "16px 40px" })} onClick={() => onAuth("login")}>Access Dashboard</button>
@@ -88,7 +88,7 @@ export default function DashboardPage({ user, enrolled, saved, badges, streak, o
 
   return (
     <div style={{ background: T.bg, minHeight: "100vh", position: "relative" }}>
-      <GridBg opacity={0.02} />
+      
 
       <div style={{ padding: "60px 24px", maxWidth: 1240, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
@@ -182,7 +182,7 @@ export default function DashboardPage({ user, enrolled, saved, badges, streak, o
                     title={b.name}
                     style={{
                       aspectRatio: "1/1",
-                      background: b.earned ? "rgba(93,214,44,0.1)" : T.surface,
+                      background: b.earned ? "rgba(197, 209, 199,0.1)" : T.surface,
                       border: `1px solid ${b.earned ? T.green : T.border}`,
                       borderRadius: 12,
                       display: "flex",

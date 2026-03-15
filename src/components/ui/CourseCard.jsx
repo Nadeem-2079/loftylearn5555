@@ -65,7 +65,7 @@ export default function CourseCard({ course, onClick }) {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
           {course.price === 0
-            ? <span style={{ ...s.mono(12), color: T.green, background: "rgba(93,214,44,0.1)", padding: "4px 9px", borderRadius: 100, border: `1px solid rgba(93,214,44,0.2)` }}>FREE</span>
+            ? <span style={{ ...s.mono(12), color: T.green, background: "rgba(197, 209, 199,0.1)", padding: "4px 9px", borderRadius: 100, border: `1px solid rgba(197, 209, 199,0.2)` }}>FREE</span>
             : <span style={{ ...s.display(18) }}>₹{course.price}</span>
           }
           <span style={{ fontSize: 12, color: T.muted2 }}>⏱ {course.dur}</span>

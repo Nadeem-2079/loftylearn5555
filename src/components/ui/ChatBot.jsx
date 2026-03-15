@@ -45,7 +45,7 @@ export default function ChatBot() {
             {isOpen && (
                 <div style={{
                     position: "fixed", bottom: 90, right: 90, width: 340, height: 500,
-                    background: "rgba(10,10,10,0.95)", backdropFilter: "blur(20px)", borderRadius: 24,
+                    background: "rgba(11,43,16,0.95)", backdropFilter: "blur(20px)", borderRadius: 24,
                     border: `1px solid rgba(255,255,255,0.1)`, display: "flex", flexDirection: "column",
                     boxShadow: "0 20px 40px rgba(0,0,0,0.5)", zIndex: 800, overflow: "hidden"
                 }}>
@@ -106,12 +106,12 @@ export default function ChatBot() {
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 style={{
-                    width: 44, height: 44, borderRadius: "50%", background: T.green,
-                    border: "none", color: T.black, display: "flex", alignItems: "center", justifyContent: "center",
-                    cursor: "pointer", boxShadow: `0 8px 24px rgba(93,214,44,0.4)`, transition: "all 0.3s"
+                    width: 44, height: 44, borderRadius: "50%", background: "#0a0a0a",
+                    border: "1px solid rgba(255,255,255,0.1)", color: "#FFF", display: "flex", alignItems: "center", justifyContent: "center",
+                    cursor: "pointer", boxShadow: `0 8px 24px rgba(0,0,0,0.6)`, transition: "all 0.3s"
                 }}
-                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
-                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
                 title="AI Assistant"
             >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

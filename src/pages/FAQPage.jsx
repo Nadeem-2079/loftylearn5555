@@ -1,11 +1,11 @@
 import React from "react";
 import { T } from "../styles/tokens";
-import GridBg from "../components/primitives/GridBg";
+
 import Eyebrow from "../components/primitives/Eyebrow";
 
 const s = {
   display: (size = 28, extra = {}) => ({
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: "'Syne', sans-serif",
     fontSize: size,
     fontWeight: 800,
     letterSpacing: "-0.03em",
@@ -58,7 +58,7 @@ const s = {
   })
 };
 
-export default function FAQPage({ onNav }) {
+export default function FAQPage() {
   const [openIndex, setOpenIndex] = React.useState(0); // Default first one open for better UX
 
   const faqs = [
@@ -82,7 +82,7 @@ export default function FAQPage({ onNav }) {
 
   return (
     <section style={{ position: "relative", background: T.bg, padding: "100px 24px", minHeight: "80vh" }}>
-      <GridBg opacity={0.03} />
+      
 
       <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
@@ -90,7 +90,7 @@ export default function FAQPage({ onNav }) {
         <div style={{ marginBottom: 80, textAlign: "left" }}>
           <Eyebrow>Assistance & Clarity</Eyebrow>
           <h1 style={s.display(52, { marginTop: 16, marginBottom: 20 })}>
-            Frequently Asked <span style={{ color: T.green }}>Questions.</span>
+            Critical <span style={{ color: T.green }}>Information.</span>
           </h1>
           <p style={{ color: T.muted, fontSize: 18, maxWidth: 550, lineHeight: 1.6 }}>
             Everything you need to know about our technical pedagogy and platform mechanics.
@@ -125,7 +125,7 @@ export default function FAQPage({ onNav }) {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "32px 40px",
-          background: `linear-gradient(90deg, ${T.surface} 0%, rgba(93,214,44,0.03) 100%)`,
+          background: `linear-gradient(90deg, ${T.surface} 0%, rgba(197, 209, 199,0.03) 100%)`,
           borderRadius: 24,
           border: `1px solid ${T.border}`,
           gap: 30,
@@ -147,8 +147,8 @@ export default function FAQPage({ onNav }) {
             transition: "all 0.2s",
             whiteSpace: "nowrap"
           }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
-            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}>
+          onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+          onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}>
             Open Support Ticket
           </button>
         </div>

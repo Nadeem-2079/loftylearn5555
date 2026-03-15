@@ -7,7 +7,7 @@ import CourseCard from "../components/ui/CourseCard";
 import InstructorCard from "../components/ui/InstructorCard";
 import MarqueeStrip from "../components/hero/MarqueeStrip";
 import Eyebrow from "../components/primitives/Eyebrow";
-import GridBg from "../components/primitives/GridBg";
+
 
 import { T } from "../styles/tokens";
 import loftybg from "../assets/loftybg.png";
@@ -26,7 +26,7 @@ const s = {
   }),
   row: (gap = 12, extra = {}) => ({ display: "flex", alignItems: "center", gap, ...extra }),
   btnPrimary: (extra = {}) => ({
-    padding: "12px 26px", borderRadius: 12, background: T.green, color: T.black,
+    padding: "12px 26px", borderRadius: 12, background: T.primaryGrad, color: T.black,
     fontSize: 14, fontWeight: 700, fontFamily: "'Poppins',sans-serif",
     cursor: "pointer", border: "none", transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)", ...extra
   }),
@@ -42,7 +42,7 @@ const s = {
     borderRadius: "4px",
     display: "inline-block",
     transform: "rotate(-1.5deg)",
-    boxShadow: "0 4px 12px rgba(93, 214, 44, 0.2)"
+    boxShadow: "0 4px 12px rgba(197, 209, 199, 0.2)"
   }
 };
 
@@ -59,10 +59,10 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
   const zoomScale = 1 + scrollY * 0.0003;
 
   const featuredCats = [
-    { icon: Icons.Cpu("#111"), name: "ARM Architecture", desc: "Instruction sets & Cortex-M internals", count: 88 },
-    { icon: Icons.Zap("#111"), name: "RTOS & Kernels", desc: "FreeRTOS, threading & scheduling", count: 64 },
-    { icon: Icons.Code("#111"), name: "Embedded C/C++", desc: "Bare-metal & hardware abstraction", count: 142 },
-    { icon: Icons.Layers("#111"), name: "Microcontrollers", desc: "STM32, ESP32 & AVR interfacing", count: 112 },
+    { icon: Icons.Cpu("#1A2E24"), name: "ARM Architecture", desc: "Instruction sets & Cortex-M internals", count: 88 },
+    { icon: Icons.Zap("#1A2E24"), name: "RTOS & Kernels", desc: "FreeRTOS, threading & scheduling", count: 64 },
+    { icon: Icons.Code("#1A2E24"), name: "Embedded C/C++", desc: "Bare-metal & hardware abstraction", count: 142 },
+    { icon: Icons.Layers("#1A2E24"), name: "Microcontrollers", desc: "STM32, ESP32 & AVR interfacing", count: 112 },
   ];
 
   return (
@@ -71,15 +71,17 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
       {/* HERO SECTION */}
       <section ref={heroRef} style={{
         width: '100%', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-        backgroundImage: `url(${loftybg})`, backgroundSize: `${zoomScale * 100}%`,
-        backgroundPosition: 'center', position: 'relative', overflow: 'hidden',
-        paddingTop: 80, transition: 'background-size 0.05s ease-out'
+        position: 'relative', overflow: 'hidden',
+        paddingTop: 80
       }}>
-        {/* Dark Overlay for the background image */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0, 0, 0, 0.75)', zIndex: 0 }} />
-
-        {/* Soft Radial Glow over the image */}
-        <div style={{ position: 'absolute', top: "10%", left: "50%", transform: "translateX(-50%)", width: "80vw", height: "80vw", background: `radial-gradient(circle, ${T.green}18 0%, transparent 60%)`, pointerEvents: "none", zIndex: 1 }} />
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 0,
+          backgroundImage: `url(${loftybg})`, backgroundSize: 'cover', backgroundPosition: 'center',
+          transform: `scale(${zoomScale})`, transformOrigin: 'center',
+          transition: 'transform 0.05s ease-out'
+        }} />
+        {/* Clean Overlay for readability while keeping the original background color */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0, 0, 0, 0.2)', zIndex: 0 }} />
 
         <div className="mob-col mob-pad-y-lg mob-pad" style={{
           maxWidth: 1200, width: '100%', padding: '60px 24px', display: 'grid',
@@ -89,7 +91,7 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
             <div style={{ marginBottom: 24 }}>
               <span style={{
                 fontSize: 10, fontWeight: 800, color: T.green, letterSpacing: "0.15em",
-                textTransform: "uppercase", background: "rgba(93,214,44,0.1)",
+                textTransform: "uppercase", background: "rgba(197, 209, 199,0.1)",
                 padding: "6px 12px", borderRadius: 8, border: `1px solid ${T.green}22`
               }}>Professional Systems Academy</span>
             </div>
@@ -106,29 +108,32 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
             </div>
           </div>
 
-          {/* RIGHT: 3D MICROCONTROLLER GRAPHIC */}
+          {/* RIGHT: FOUNDER IMAGE (Replacing 3D Chip) */}
           <div className="mob-3d-chip" style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", height: 500, perspective: 1200 }}>
-            {/* The Chip */}
+            {/* Elegant Founder Profile Card */}
             <div style={{
-              width: 320, height: 320, background: "#111", borderRadius: 24, position: "relative",
-              transformStyle: "preserve-3d",
-              transform: `rotateX(${20 + scrollY * -0.05}deg) rotateZ(${-15 + scrollY * 0.05}deg) rotateY(${15 + scrollY * 0.02}deg)`,
-              boxShadow: "20px 30px 60px rgba(0,0,0,0.8), -10px -10px 30px rgba(255,255,255,0.05)",
-              border: `1px solid ${T.borderHi}`, display: "flex", alignItems: "center", justifyContent: "center"
+              width: 360, height: 460, background: T.surface2, borderRadius: 28, position: "relative",
+              overflow: "hidden", border: `1px solid ${T.borderHi}`,
+              boxShadow: `0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(197,209,199,0.15)`,
+              transform: `translateY(${scrollY * 0.05}px) scale(0.95)`,
+              transition: 'transform 0.1s ease-out'
             }}>
-              {/* Chip core */}
-              <div style={{ width: 140, height: 140, background: "#0a0a0a", borderRadius: 16, border: "2px solid #222", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "inset 0 4px 15px rgba(0,0,0,0.8)" }}>
-                <span style={{ color: T.green, fontFamily: "'Roboto Mono', monospace", fontSize: 18, fontWeight: 800, letterSpacing: "0.1em", textShadow: `0 0 10px ${T.green}55` }}>LoftyOS</span>
+              {/* Image Placeholder - User will replace this src */}
+              <img src="/founder.jpg" alt="Dr. Aravindhan" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+
+              {/* Rich Gradient Overlay for Text */}
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "40px 24px 24px", background: "linear-gradient(to top, rgba(11,43,16,0.95) 0%, rgba(11,43,16,0.8) 40%, transparent 100%)" }}>
+                <div style={{ color: T.white, fontSize: 26, fontWeight: 800, fontFamily: "'Poppins', sans-serif", marginBottom: 4 }}>Dr. Aravindhan</div>
+                <div style={{ color: T.green, fontSize: 13, fontWeight: 700, letterSpacing: 1.5, textTransform: "uppercase" }}>Founder, LoftyLearn</div>
               </div>
 
-              {/* Pins Top/Bottom */}
-              {Array.from({ length: 8 }).map((_, i) => <div key={`t-${i}`} style={{ position: "absolute", top: -8, left: 30 + i * 36, width: 12, height: 16, background: "linear-gradient(180deg, #555, #222)", borderRadius: 2, boxShadow: "0 2px 4px rgba(0,0,0,0.8)" }} />)}
-              {Array.from({ length: 8 }).map((_, i) => <div key={`b-${i}`} style={{ position: "absolute", bottom: -8, left: 30 + i * 36, width: 12, height: 16, background: "linear-gradient(0deg, #555, #222)", borderRadius: 2, boxShadow: "0 -2px 4px rgba(0,0,0,0.8)" }} />)}
-
-              {/* Pins Left/Right */}
-              {Array.from({ length: 8 }).map((_, i) => <div key={`l-${i}`} style={{ position: "absolute", left: -8, top: 30 + i * 36, width: 16, height: 12, background: "linear-gradient(90deg, #555, #222)", borderRadius: 2, boxShadow: "2px 0 4px rgba(0,0,0,0.8)" }} />)}
-              {Array.from({ length: 8 }).map((_, i) => <div key={`r-${i}`} style={{ position: "absolute", right: -8, top: 30 + i * 36, width: 16, height: 12, background: "linear-gradient(-90deg, #555, #222)", borderRadius: 2, boxShadow: "-2px 0 4px rgba(0,0,0,0.8)" }} />)}
+              {/* Decorative Corner Accents */}
+              <div style={{ position: "absolute", top: 16, right: 16, width: 40, height: 40, borderTop: `2px solid ${T.green}`, borderRight: `2px solid ${T.green}`, opacity: 0.5 }} />
+              <div style={{ position: "absolute", bottom: 16, left: 16, width: 40, height: 40, borderBottom: `2px solid ${T.green}`, borderLeft: `2px solid ${T.green}`, opacity: 0.5 }} />
             </div>
+
+            {/* Glowing Accent behind image */}
+            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 400, height: 400, background: T.green, borderRadius: "50%", filter: "blur(100px)", opacity: 0.1, zIndex: -1 }} />
           </div>
         </div>
       </section>
@@ -167,7 +172,7 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
 
             <div onClick={() => onNav("courses")}
               style={{
-                background: "#111", padding: "48px 40px", borderRadius: 24, cursor: "pointer",
+                background: "#1A2E24", padding: "48px 40px", borderRadius: 24, cursor: "pointer",
                 display: "flex", flexDirection: "column", justifyContent: "center", transition: "all 0.3s ease"
               }}>
               <div style={{ color: "#FFF", fontSize: 20, fontWeight: 800, marginBottom: 8 }}>Explore All Units</div>
@@ -212,7 +217,7 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
       {/* ABOUT US SECTION - Replaces CTA */}
       <section className="mob-pad-y-lg" style={{ padding: "140px 24px", background: `linear-gradient(135deg, ${T.surface} 0%, ${T.bg} 100%)`, position: "relative", overflow: "hidden" }}>
         {/* Subtle SVG PCB Circuit background on About Us */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h20v20h-20z' fill='none' stroke='%235DD62C' stroke-opacity='0.05' stroke-width='2'/%3E%3Cpath d='M20 30v40h60v-40' fill='none' stroke='%235DD62C' stroke-opacity='0.1' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%235DD62C' fill-opacity='0.1'/%3E%3C/svg%3E")`, opacity: 0.2, pointerEvents: "none", zIndex: 1 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h20v20h-20z' fill='none' stroke='%23C5D1C7' stroke-opacity='0.05' stroke-width='2'/%3E%3Cpath d='M20 30v40h60v-40' fill='none' stroke='%23C5D1C7' stroke-opacity='0.1' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23C5D1C7' fill-opacity='0.1'/%3E%3C/svg%3E")`, opacity: 0.2, pointerEvents: "none", zIndex: 1 }} />
 
         <div className="mob-col mob-pad" style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 2, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
 
@@ -228,39 +233,49 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
             <p style={{ fontSize: 17, color: "rgba(255,255,255,0.7)", marginBottom: 40, lineHeight: 1.7, fontWeight: 400 }}>
               What do we do? We strip away the unnecessary noise. Our carefully curated pathways dive straight into bare-metal C formatting, RTOS integrations, custom hardware driver development, and deep-level logic engineering. We train you to think like a machine.
             </p>
-            <button style={{ ...s.btnPrimary(), padding: "14px 32px", boxShadow: `0 12px 30px rgba(93,214,44,0.15)` }} onClick={() => onNav("about")}>
+            <button style={{ ...s.btnPrimary(), padding: "14px 32px", boxShadow: `0 12px 30px rgba(197, 209, 199,0.15)` }} onClick={() => onNav("about")}>
               Read Our Full Story
             </button>
           </div>
 
-          {/* Right: Abstract Graphic */}
-          <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", height: 400 }}>
-            {/* Base Glowing Ring */}
+          {/* Right: Premium About Graphic / Secondary Founder Placeholder */}
+          <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", height: 460 }}>
+            {/* Elegant Background Card */}
             <div style={{
-              position: "absolute", width: 340, height: 340, borderRadius: "50%",
-              border: `2px dashed rgba(255,255,255,0.1)`,
-              animation: "spin 40s linear infinite"
-            }} />
-            <div style={{
-              position: "absolute", width: 260, height: 260, borderRadius: "50%",
-              border: `1px solid ${T.green}44`,
-              animation: "spin 20s linear infinite reverse"
-            }} />
-
-            {/* Center Node */}
-            <div style={{
-              width: 140, height: 140, background: T.surface2, borderRadius: "50%",
-              border: `1px solid ${T.border}`, display: "flex", alignItems: "center", justifyContent: "center",
-              boxShadow: `0 0 60px ${T.green}22`, zIndex: 10
+              width: "100%", maxWidth: 400, height: 420, background: T.surface2, borderRadius: 32, position: "relative",
+              overflow: "hidden", border: `1px solid ${T.borderHi}`,
+              boxShadow: `0 30px 60px rgba(0,0,0,0.5)`,
+              display: "flex", flexDirection: "column", justifyContent: "flex-end"
             }}>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke={T.green} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
+              {/* Optional secondary image for About section */}
+              <img src="/founder.jpg" alt="Dr. Aravindhan Mentoring" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }} />
+
+              <div style={{ position: "relative", zIndex: 10, padding: 32, background: "linear-gradient(to top, rgba(11,43,16,1) 0%, rgba(11,43,16,0.8) 60%, transparent 100%)" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 12, background: T.green, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 8px 20px rgba(197,209,199,0.3)` }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={T.black} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+                  </div>
+                  <div>
+                    <div style={{ color: T.white, fontSize: 18, fontWeight: 700 }}>Industry Mentorship</div>
+                    <div style={{ color: T.green, fontSize: 13, fontWeight: 600 }}>10+ Years Experience</div>
+                  </div>
+                </div>
+                <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, lineHeight: 1.6 }}>Bringing decades of architectural wisdom down to the bare metal level. Learn from the leading expert in modern hardware design.</p>
+              </div>
             </div>
 
-            <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
+            {/* Floating Achievement Badge */}
+            <div style={{
+              position: "absolute", top: 20, right: -20, background: "rgba(11,43,16,0.9)", backdropFilter: "blur(12px)",
+              padding: "16px 20px", borderRadius: 16, border: `1px solid ${T.borderHi}`,
+              boxShadow: `0 12px 30px rgba(0,0,0,0.4)`,
+              animation: "floatA 6s ease-in-out infinite"
+            }}>
+              <div style={{ color: T.green, fontSize: 24, fontWeight: 800, fontFamily: "'Roboto Mono', monospace", marginBottom: 4 }}>100K+</div>
+              <div style={{ color: T.white, fontSize: 12, fontWeight: 600, letterSpacing: 0.5 }}>ENGINEERS TRAINED</div>
+            </div>
+
+            <style>{`@keyframes floatA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }`}</style>
           </div>
 
         </div>

@@ -105,7 +105,7 @@ export default function LearnPage({ course, enrolled, toast, setEnrolled }) {
 
                 <button
                   onClick={() => handleComplete(activeVideo?.id)}
-                  style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(93,214,44,0.2)", border: `2px solid ${T.green}`, color: T.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s" }}
+                  style={{ width: 80, height: 80, borderRadius: "50%", background: "rgba(197, 209, 199,0.2)", border: `2px solid ${T.green}`, color: T.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
                   onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
                 >
@@ -151,7 +151,7 @@ export default function LearnPage({ course, enrolled, toast, setEnrolled }) {
                         onClick={() => setActiveVideo({ ...l, id })}
                         style={{
                           padding: "12px 16px", borderRadius: 8, cursor: "pointer", display: "flex", gap: 12, alignItems: "flex-start",
-                          background: isActive ? "rgba(93,214,44,0.1)" : "transparent",
+                          background: isActive ? "rgba(197, 209, 199,0.1)" : "transparent",
                           borderLeft: `2px solid ${isActive ? T.green : "transparent"}`,
                           transition: "background 0.2s"
                         }}

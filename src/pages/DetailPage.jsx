@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EnrollCard from "../components/ui/EnrollCard";
 import { T } from "../styles/tokens";
 import Eyebrow from "../components/primitives/Eyebrow";
-import GridBg from "../components/primitives/GridBg";
+
 
 const s = {
   display: (size = 32, extra = {}) => ({
@@ -25,7 +25,7 @@ export default function DetailPage({ course, enrolled, saved, onEnroll, onSave, 
 
   return (
     <div style={{ background: T.bg, minHeight: "100vh", position: "relative", width: "100%" }}>
-      <GridBg opacity={0.02} />
+      
 
       {/* HERO HEADER */}
       <div style={{ borderBottom: `1px solid ${T.border}`, padding: "80px 24px 60px" }}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { T } from "../styles/tokens";
-import GridBg from "../components/primitives/GridBg";
+
 import Eyebrow from "../components/primitives/Eyebrow";
 
 const s = {
@@ -39,7 +39,7 @@ const s = {
 export default function ContactPage() {
   const handleFocus = (e) => {
     e.currentTarget.style.borderColor = T.green;
-    e.currentTarget.style.background = "rgba(93,214,44,0.02)";
+    e.currentTarget.style.background = "rgba(197, 209, 199,0.02)";
   };
 
   const handleBlur = (e) => {
@@ -49,7 +49,7 @@ export default function ContactPage() {
 
   return (
     <section style={{ position: "relative", background: T.bg, padding: "60px 24px" }}>
-      <GridBg opacity={0.03} />
+      
 
       <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
