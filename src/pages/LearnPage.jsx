@@ -64,7 +64,7 @@ export default function LearnPage({ course, enrolled, toast, setEnrolled }) {
         </div>
       </div>
 
-      <div className="mob-col" style={{ display: "grid", gridTemplateColumns: "1fr 340px", minHeight: "calc(100vh - 120px)" }}>
+      <div className="mob-grid" style={{ display: "grid", gridTemplateColumns: "1fr 340px", minHeight: "calc(100vh - 120px)" }}>
 
         {/* Main Video Area */}
         <div className="mob-pad" style={{ padding: 32, display: "flex", flexDirection: "column" }}>

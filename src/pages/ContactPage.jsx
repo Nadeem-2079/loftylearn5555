@@ -64,7 +64,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="mob-col" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 60, alignItems: "start" }}>
+        <div className="mob-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 60, alignItems: "start" }}>
 
           {/* LEFT COLUMN: INFO TILES */}
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -120,7 +120,7 @@ export default function ContactPage() {
             boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
           }}>
             <form style={{ display: "flex", flexDirection: "column", gap: 24 }} onSubmit={e => e.preventDefault()}>
-              <div className="mob-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              <div className="mob-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   <label style={{ fontSize: 12, fontWeight: 600, color: T.muted2, marginLeft: 4 }}>Full Name</label>
                   <input type="text" placeholder="Jane Doe" style={s.input} onFocus={handleFocus} onBlur={handleBlur} />

@@ -71,7 +71,20 @@ function ProgressCard({ course, prog, onLearn }) {
   );
 }
 
-export default function DashboardPage({ user, enrolled, saved, badges, streak, onCourse, onLearn, onAuth, toast }) {
+export default function DashboardPage({ user, setUser, enrolled, saved, badges, streak, onCourse, onLearn, onAuth, toast, onExplore }) {
+  const [isEditing, setIsEditing] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    name: user?.name || "",
+    age: user?.age || "",
+    role: user?.role || "Systems Engineer",
+    image: user?.image || ""
+  });
+
+  const handleSave = () => {
+    if (setUser) setUser({ ...user, ...formData });
+    setIsEditing(false);
+    toast("Profile updated successfully", "✓");
+  };
   if (!user) {
     return (
       <div style={{ padding: "120px 24px", textAlign: "center", position: "relative" }}>
@@ -95,20 +108,52 @@ export default function DashboardPage({ user, enrolled, saved, badges, streak, o
         {/* TOP BAR: USER GREETING */}
         <header style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48 }}>
           <div>
-            <Eyebrow>Learning Dashboard</Eyebrow>
-            <h1 style={s.display(42, { marginTop: 8 })}>Welcome back, {user.name.split(' ')[0]}!</h1>
+            <Eyebrow>{isEditing ? "Account Settings" : "Learning Dashboard"}</Eyebrow>
+            <h1 style={s.display(42, { marginTop: 8 })}>
+              {isEditing ? "Edit Profile" : `Welcome back, ${user.name.split(' ')[0]}!`}
+            </h1>
           </div>
           <div style={{ display: "flex", gap: 12 }}>
-            <button style={{ ...s.btnPrimary(), background: T.surface, color: T.white, border: `1px solid ${T.border}` }} onClick={() => toast("Settings coming soon")}>Edit Profile</button>
-            <button style={s.btnPrimary()} onClick={() => onCourse(null)}>Explore More</button>
+            <button style={{ ...s.btnPrimary(), background: isEditing ? T.green : T.surface, color: isEditing ? T.black : T.white, border: `1px solid ${isEditing ? T.green : T.border}` }} onClick={() => setIsEditing(!isEditing)}>
+              {isEditing ? "View Learning Path" : "Edit Profile"}
+            </button>
+            <button style={s.btnPrimary()} onClick={onExplore}>Explore More</button>
           </div>
         </header>
 
-        <div className="mob-col" style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 40, alignItems: "start" }}>
+        <div className="mob-grid" style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 40, alignItems: "start" }}>
 
           {/* MAIN CONTENT AREA */}
           <main style={{ display: "flex", flexDirection: "column", gap: 48 }}>
-
+            {isEditing ? (
+              <section style={s.card({ padding: 32 })}>
+                <div style={{ display: "flex", gap: 40, alignItems: "flex-start", flexWrap: "wrap", flexDirection: "row-reverse", justifyContent: "flex-end" }}>
+                  <div style={{ width: 140, height: 140, borderRadius: "50%", background: T.surface2, border: `2px solid ${T.green}44`, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    {formData.image ? <img src={formData.image} alt="Profile" style={{ width: "100%", height: "100%", objectFit: "cover" }} /> : <div style={{ fontSize: 40, color: T.muted }}>👤</div>}
+                  </div>
+                  <div style={{ flex: "1 1 300px", display: "flex", flexDirection: "column", gap: 20 }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      <label style={{ fontSize: 12, fontWeight: 700, color: T.muted2, textTransform: "uppercase" }}>Full Name</label>
+                      <input type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${T.border}`, padding: "14px 16px", borderRadius: 12, color: T.white, outline: "none", fontSize: 15 }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      <label style={{ fontSize: 12, fontWeight: 700, color: T.muted2, textTransform: "uppercase" }}>Age</label>
+                      <input type="number" min="15" max="100" value={formData.age} onChange={e => setFormData({...formData, age: e.target.value})} style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${T.border}`, padding: "14px 16px", borderRadius: 12, color: T.white, outline: "none", fontSize: 15, fontFamily: "'Roboto Mono', monospace" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      <label style={{ fontSize: 12, fontWeight: 700, color: T.muted2, textTransform: "uppercase" }}>Professional Role</label>
+                      <input type="text" value={formData.role} onChange={e => setFormData({...formData, role: e.target.value})} style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${T.border}`, padding: "14px 16px", borderRadius: 12, color: T.white, outline: "none", fontSize: 15 }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                      <label style={{ fontSize: 12, fontWeight: 700, color: T.muted2, textTransform: "uppercase" }}>Profile Image URL (JPG/PNG)</label>
+                      <input type="url" value={formData.image} onChange={e => setFormData({...formData, image: e.target.value})} placeholder="https://..." style={{ background: "rgba(0,0,0,0.2)", border: `1px solid ${T.border}`, padding: "14px 16px", borderRadius: 12, color: T.white, outline: "none", fontSize: 15 }} />
+                    </div>
+                    <button style={{ ...s.btnPrimary(), marginTop: 12, alignSelf: "flex-start", padding: "16px 32px" }} onClick={handleSave}>Save Changes</button>
+                  </div>
+                </div>
+              </section>
+            ) : (
+              <>
             {/* 1. PROGRESS SECTION */}
             <section>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
@@ -129,81 +174,46 @@ export default function DashboardPage({ user, enrolled, saved, badges, streak, o
             {/* 2. SAVED COURSES (HORIZONTAL SCROLL OR GRID) */}
             <section>
               <h2 style={s.display(24, { marginBottom: 24 })}>Your Watchlist</h2>
-              <div className="mob-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {savedCourses.map(c => (
-                  <div
-                    key={c.id}
-                    style={s.card({ display: "flex", alignItems: "center", gap: 16, padding: 16, cursor: "pointer" })}
-                    onClick={() => onCourse(c.id)}
-                  >
-                    <div style={{ width: 60, height: 60, background: T.surface2, borderRadius: 12, flexShrink: 0 }} />
-                    <div style={{ overflow: "hidden" }}>
-                      <div style={{ fontSize: 14, fontWeight: 700, color: T.white, whiteSpace: "nowrap", textOverflow: "ellipsis", overflow: "hidden" }}>{c.title}</div>
-                      <div style={{ fontSize: 12, color: T.muted2 }}>{c.instructor}</div>
+              <div className="mob-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                {savedCourses.length > 0 ? (
+                  savedCourses.map(c => (
+                    <div
+                      key={c.id}
+                      style={s.card({ display: "flex", alignItems: "center", gap: 16, padding: 16, cursor: "pointer" })}
+                      onClick={() => onCourse(c.id)}
+                    >
+                      <div style={{ width: 60, height: 60, background: T.surface2, borderRadius: 12, flexShrink: 0 }} />
+                      <div style={{ overflow: "hidden" }}>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: T.white, whiteSpace: "nowrap", textOverflow: "ellipsis", overflow: "hidden" }}>{c.title}</div>
+                        <div style={{ fontSize: 12, color: T.muted2 }}>{c.instructor}</div>
+                      </div>
                     </div>
+                  ))
+                ) : (
+                  <div style={s.card({ width: "100%", gridColumn: "1 / -1", textAlign: "center", borderStyle: "dashed" })}>
+                    <p style={{ color: T.muted }}>Your watchlist is empty. Browse the curriculum to save courses.</p>
                   </div>
-                ))}
+                )}
               </div>
             </section>
+              </>
+            )}
 
           </main>
 
           {/* SIDEBAR AREA */}
           <aside style={{ display: "flex", flexDirection: "column", gap: 32 }}>
 
-            {/* STREAK & STATS */}
-            <div style={s.card({ background: `linear-gradient(135deg, ${T.surface} 0%, #1a1a1a 100%)` })}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-                <div style={{ fontSize: 32 }}>🔥</div>
-                <div>
-                  <div style={s.display(24)}>{streak} Days</div>
-                  <div style={{ fontSize: 12, color: T.muted2, fontWeight: 700 }}>CURRENT STREAK</div>
-                </div>
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                <div style={{ background: "rgba(255,255,255,0.03)", padding: 12, borderRadius: 12 }}>
-                  <div style={{ fontSize: 18, fontWeight: 800, color: T.green }}>{badges.filter(b => b.earned).length}</div>
-                  <div style={{ fontSize: 10, color: T.muted2 }}>BADGES</div>
-                </div>
-                <div style={{ background: "rgba(255,255,255,0.03)", padding: 12, borderRadius: 12 }}>
-                  <div style={{ fontSize: 18, fontWeight: 800, color: T.green }}>{Math.round(enrolled.reduce((a, e) => a + e.prog, 0) / enrolled.length) || 0}%</div>
-                  <div style={{ fontSize: 10, color: T.muted2 }}>AVG PROG</div>
-                </div>
-              </div>
-            </div>
-
-            {/* ACHIEVEMENTS MINI GALLERY */}
-            <section>
-              <h3 style={{ fontSize: 14, fontWeight: 800, color: T.white, marginBottom: 16, letterSpacing: 1 }}>ACHIEVEMENTS</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 10 }}>
-                {badges.map((b, i) => (
-                  <div
-                    key={i}
-                    title={b.name}
-                    style={{
-                      aspectRatio: "1/1",
-                      background: b.earned ? "rgba(93,214,44,0.1)" : T.surface,
-                      border: `1px solid ${b.earned ? T.green : T.border}`,
-                      borderRadius: 12,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 20,
-                      opacity: b.earned ? 1 : 0.3
-                    }}>
-                    {b.icon}
+            {/* QUICK LINKS */}
+            <div style={s.card()}>
+              <h3 style={{ fontSize: 14, fontWeight: 800, color: T.white, marginBottom: 16, letterSpacing: 1 }}>QUICK LINKS</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {['Browse Course Library', 'Community Forum', 'Upcoming Webinars'].map(link => (
+                  <div key={link} style={{ fontSize: 13, color: T.muted, cursor: "pointer", padding: "8px 0", borderBottom: `1px solid rgba(255,255,255,0.05)` }} onMouseEnter={e => e.currentTarget.style.color = T.green} onMouseLeave={e => e.currentTarget.style.color = T.muted} onClick={link === 'Browse Course Library' ? onExplore : undefined}>
+                    {link} →
                   </div>
                 ))}
               </div>
-            </section>
-
-            {/* QUICK LINKS */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {['Community Forum', 'Upcoming Webinars', 'Download Certificates'].map(link => (
-                <div key={link} style={{ fontSize: 13, color: T.muted, cursor: "pointer", padding: "4px 0" }} onMouseEnter={e => e.currentTarget.style.color = T.green} onMouseLeave={e => e.currentTarget.style.color = T.muted}>
-                  {link} →
-                </div>
-              ))}
             </div>
 
           </aside>

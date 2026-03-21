@@ -23,7 +23,6 @@ import FAQPage from "./pages/FAQPage";
 import AboutPage from "./pages/AboutPage";
 import Nav from "./components/layout/Nav";
 import Footer from "./components/layout/Footer";
-import ReviewsSection from "./components/ui/ReviewsSection";
 import ChatBot from "./components/ui/ChatBot";
 
 /* modal */
@@ -39,15 +38,15 @@ export default function App() {
   const [page, setPage] = useState("home");
   const [history, setHistory] = useState([]);
   const [user, setUser] = useState(null);
-  const [enrolled, setEnrolled] = useState([{ id: 1, prog: 68 }, { id: 9, prog: 23 }]);
-  const [saved, setSaved] = useState([3, 5]);
+  const [enrolled, setEnrolled] = useState([]);
+  const [saved, setSaved] = useState([]);
   const [currentCourse, setCurrentCourse] = useState(COURSES[0]);
   const [authMode, setAuthMode] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [badges] = useState([
-    { name: "Fast Learner", desc: "5 lessons in a day", earned: true },
-    { name: "First Win", desc: "Complete a course", earned: true },
-    { name: "Quick Start", desc: "Finish first lesson", earned: true },
+    { name: "Fast Learner", desc: "5 lessons in a day", earned: false },
+    { name: "First Win", desc: "Complete a course", earned: false },
+    { name: "Quick Start", desc: "Finish first lesson", earned: false },
     { name: "Diamond", desc: "10 courses done", earned: false },
     { name: "Star Student", desc: "100% on a quiz", earned: false },
     { name: "Rocket", desc: "30-day streak", earned: false },
@@ -81,14 +80,16 @@ export default function App() {
       infinite: false,
     });
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
@@ -120,11 +121,21 @@ export default function App() {
   };
 
   const openCourse = (id) => {
+    if (!user) {
+      openAuth("login");
+      addToast("Sign in to view course details", "🔐");
+      return;
+    }
     setCurrentCourse(COURSES.find(c => c.id === id) || COURSES[0]);
     nav("detail");
   };
 
   const openWorkshop = (w) => {
+    if (!user) {
+      openAuth("login");
+      addToast("Sign in to register for workshops", "🔐");
+      return;
+    }
     setCurrentWorkshop(w);
     nav("register");
   };
@@ -203,19 +214,17 @@ export default function App() {
         {page === "workshops" && <WorkshopsPage toast={addToast} onRegister={openWorkshop} />}
         {page === "detail" && <DetailPage course={currentCourse} enrolled={enrolled.map(e => e.id).includes(currentCourse?.id)} saved={saved.includes(currentCourse?.id)} onEnroll={handleEnroll} onSave={handleSave} onPay={handlePay} onLearn={handleLearn} />}
         {page === "learn" && <LearnPage course={currentCourse} enrolled={enrolled} toast={addToast} setEnrolled={setEnrolled} />}
-        {page === "dashboard" && <DashboardPage user={user} enrolled={enrolled} saved={saved} badges={badges} streak={14} onCourse={openCourse} onLearn={handleLearn} onAuth={openAuth} toast={addToast} />}
+        {page === "dashboard" && <DashboardPage user={user} setUser={setUser} enrolled={enrolled} saved={saved} badges={badges} streak={0} onCourse={openCourse} onLearn={handleLearn} onAuth={openAuth} toast={addToast} onExplore={() => nav("courses")} />}
         {page === "instructor" && <InstructorPage toast={addToast} />}
         {page === "payment" && <PaymentPage course={currentCourse} workshop={currentWorkshop} user={user} onComplete={handlePayComplete} />}
         {page === "success" && <SuccessPage onLearn={() => nav("learn")} onDash={() => nav("dashboard")} />}
         {page === "contact" && <ContactPage onNav={nav} />}
         {page === "faq" && <FAQPage onNav={nav} />}
-        {page === "about" && <AboutPage />}
+        {page === "about" && <AboutPage onNav={nav} />}
 
-        {/* register page for workshops */}
         {page === "register" && <RegisterPage workshop={currentWorkshop} onSubmit={() => nav("payment")} />}
       </div>
 
-      {page !== "faq" && <ReviewsSection />}
       {page !== "faq" && <FAQPage onNav={nav} />}
       {page !== "contact" && <ContactPage onNav={nav} />}
 

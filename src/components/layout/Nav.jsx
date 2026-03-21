@@ -66,38 +66,58 @@ export default function Nav({ page, user, onNav, onAuth, onLogout }) {
             )}
 
             {/* Hamburger Menu (Mobile Only) */}
-            <button className="mob-show" onClick={() => setIsOpen(true)} style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: `1px solid rgba(255,255,255,0.1)`, alignSelf: "center", color: T.white, alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+            <button className="mob-show" onClick={() => setIsOpen(true)} style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: `1px solid rgba(255,255,255,0.1)`, color: T.white, display: "none", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Staggered Menu Overlay */}
+      {/* Mobile Premium Half-Dropdown Overlay */}
       {isOpen && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 1000, background: "rgba(10,10,10,0.98)", backdropFilter: "blur(20px)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
-          <button onClick={() => setIsOpen(false)} style={{ position: "absolute", top: 24, right: 24, width: 44, height: 44, borderRadius: "50%", background: "rgba(255,255,255,0.1)", border: "none", color: T.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
-          </button>
+        <>
+          {/* Backdrop */}
+          <div onClick={() => setIsOpen(false)} style={{ position: "fixed", inset: 0, zIndex: 999, background: "rgba(0,0,0,0.6)", backdropFilter: "blur(8px)", animation: "fadeIn 0.3s ease", display: "block" }} />
+          
+          {/* Dropdown Menu Container */}
+          <div style={{ position: "fixed", top: 12, left: 12, right: 12, zIndex: 1000, background: "rgba(18,18,18,0.95)", backdropFilter: "blur(24px)", borderRadius: 32, border: `1px solid rgba(255,255,255,0.08)`, padding: "24px", display: "flex", flexDirection: "column", gap: 24, boxShadow: `0 30px 60px rgba(0,0,0,0.9), 0 0 40px ${T.green}11`, animation: "slideDown 0.4s cubic-bezier(0.16,1,0.3,1)" }}>
+            
+            {/* Header / Close */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'Poppins',sans-serif", fontSize: 18, fontWeight: 800, color: T.white }}>
+                <div style={{ width: 32, height: 32, background: T.green, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width={18} height={18} viewBox="0 0 16 16" fill={T.black}><path d="M2 12 L8 3 L14 12 Z" /></svg>
+                </div>
+                <span>Lofty<span style={{ color: T.green }}>Learn</span></span>
+              </div>
+              <button onClick={() => setIsOpen(false)} style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: `1px solid rgba(255,255,255,0.1)`, color: T.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+              </button>
+            </div>
 
-          {[["Home", "home"], ["Courses", "courses"], ["Live", "workshops"], ["About", "about"]].map(([l, p], i) => (
-            <button key={p} className="fu" style={{ animationDelay: `${i * 0.1}s`, fontSize: 32, fontWeight: 800, color: page === p ? T.green : T.white, background: "none", border: "none", cursor: "pointer", letterSpacing: "-0.02em" }} onClick={() => handleNav(p)}>{l}</button>
-          ))}
+            {/* Links */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
+              {[["Home", "home"], ["Courses", "courses"], ["Live Workshops", "workshops"], ["About Us", "about"]].map(([l, p], i) => (
+                <button key={p} style={{ animation: `fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) ${i * 0.05}s both`, padding: "14px 20px", borderRadius: 16, background: page === p ? "rgba(93,214,44,0.12)" : "transparent", color: page === p ? T.green : T.white, fontSize: 18, fontWeight: page === p ? 800 : 600, textAlign: "left", letterSpacing: "-0.02em", transition: "all 0.2s" }} onClick={() => handleNav(p)}>{l}</button>
+              ))}
+            </div>
 
-          <div className="fu" style={{ animationDelay: "0.4s", display: "flex", flexDirection: "column", gap: 16, marginTop: 32, width: "100%", maxWidth: 240 }}>
-            {user ? (
-              <>
-                <button onClick={() => handleNav("dashboard")} style={s.btnGhost({ width: "100%", padding: "14px 0" })}>Dashboard</button>
-                <button onClick={() => { setIsOpen(false); onLogout(); }} style={s.btnPrimary({ width: "100%", padding: "14px 0", background: "rgba(255,100,100,0.1)", color: "#ff6b6b" })}>Sign out</button>
-              </>
-            ) : (
-              <>
-                <button onClick={() => { setIsOpen(false); onAuth("login"); }} style={s.btnGhost({ width: "100%", padding: "14px 0" })}>Sign in</button>
-                <button onClick={() => { setIsOpen(false); onAuth("signup"); }} style={s.btnPrimary({ width: "100%", padding: "14px 0" })}>Get started</button>
-              </>
-            )}
+            {/* Auth/Dash */}
+            <div style={{ animation: `fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.2s both`, borderTop: `1px solid rgba(255,255,255,0.08)`, paddingTop: 24, display: "flex", flexDirection: "column", gap: 12 }}>
+              {user ? (
+                <>
+                  <button onClick={() => handleNav("dashboard")} style={s.btnPrimary({ width: "100%", padding: "16px 0", fontSize: 16, borderRadius: 16 })}>Go to Dashboard</button>
+                  <button onClick={() => { setIsOpen(false); onLogout(); }} style={s.btnGhost({ width: "100%", padding: "16px 0", fontSize: 16, border: "none", color: "#ff6b6b", background: "rgba(255,100,100,0.05)", borderRadius: 16 })}>Sign out securely</button>
+                </>
+              ) : (
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                  <button onClick={() => { setIsOpen(false); onAuth("login"); }} style={s.btnGhost({ padding: "16px 0", fontSize: 15, borderRadius: 16 })}>Sign in</button>
+                  <button onClick={() => { setIsOpen(false); onAuth("signup"); }} style={s.btnPrimary({ padding: "16px 0", fontSize: 15, borderRadius: 16 })}>Register Now</button>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

@@ -64,7 +64,7 @@ export default function AuthModal({ mode, onClose, onLogin }) {
         ) : view==="signup" ? (
           <>
             <h2 style={s.display(24, { marginBottom:5 })}>Join LoftyLearn.</h2>
-            <p style={{ fontSize:13.5, color:T.muted2, marginBottom:24 }}>Start learning for free today.</p>
+            <p style={{ fontSize:13.5, color:T.muted2, marginBottom:24 }}>Register your account today.</p>
             <button style={{ width:"100%", ...s.btnGhost({ padding:11, fontSize:14, fontWeight:600, marginBottom:18, display:"flex", alignItems:"center", justifyContent:"center", gap:10 }) }}
               onClick={() => doAuth("Demo User","demo@loftylearn.com")}>
               <span style={{ fontSize:16 }}>⊕</span> Continue with Google

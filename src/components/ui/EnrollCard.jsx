@@ -35,7 +35,7 @@ export default function EnrollCard({ course, isEnrolled, isSaved, onEnroll, onPa
           : <div style={{ ...s.display(32, { marginBottom: 16 }) }}>₹{course.price}</div>}
         {isEnrolled
           ? <button style={{ width: "100%", ...s.btnPrimary({ padding: 14, fontSize: 15, borderRadius: 12, marginBottom: 10, background: T.forest, border: `1px solid ${T.green}`, color: T.green }) }} onClick={() => onLearn(course.id)}>▶ Continue learning</button>
-          : <button style={{ width: "100%", ...s.btnPrimary({ padding: 14, fontSize: 15, borderRadius: 12, marginBottom: 10, fontFamily: "'Poppins',sans-serif" }) }} onClick={() => course.price === 0 ? onEnroll(course.id) : onPay(course.id)}>{course.price === 0 ? "Enroll free" : "Buy now"}</button>
+          : <button style={{ width: "100%", ...s.btnPrimary({ padding: 14, fontSize: 15, borderRadius: 12, marginBottom: 10, fontFamily: "'Poppins',sans-serif" }) }} onClick={() => onPay(course.id)}>Request Access</button>
         }
         <button style={{ width: "100%", ...s.btnGhost({ padding: 13, fontSize: 14, borderRadius: 12, marginBottom: 0 }) }} onClick={() => onSave(course.id)}>{isSaved ? "♥ Saved" : "♡ Save for later"}</button>
         <div style={{ marginTop: 18, paddingTop: 18, borderTop: `1px solid ${T.border}` }}>

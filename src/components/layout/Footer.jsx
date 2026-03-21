@@ -19,9 +19,8 @@ export default function Footer({ onNav }) {
               </div>
               <span>Lofty<span style={{ color: T.green }}>Learn</span></span>
             </button>
-            <p style={{ fontSize: 13, fontWeight: 700, color: T.green, marginBottom: 8, letterSpacing: "0.2em", textTransform: "uppercase" }}>Knowledge is Power</p>
-            <p style={{ fontSize: 14, color: "rgba(248,248,248,0.6)", lineHeight: 1.8, maxWidth: 280, marginBottom: 16 }}>Empowering professionals to master new skills and advance their careers with world-class learning experiences.</p>
-            <p style={{ fontSize: 13, fontWeight: 700, color: T.green, marginBottom: 20, letterSpacing: "0.02em" }}>Learn Today. Build Tomorrow. Lead Always.</p>
+            <p style={{ fontSize: 14, color: "rgba(248,248,248,0.6)", lineHeight: 1.6, maxWidth: 260, marginBottom: 20 }}>Advanced Embedded Systems & Computer Architecture training for the modern engineering professional.</p>
+            <p style={{ fontSize: 12, fontWeight: 700, color: T.green, marginBottom: 20, letterSpacing: "0.05em", textTransform: "uppercase" }}>Learn Today. Build Tomorrow.</p>
             <div style={{ display: "flex", gap: 10 }}>
               {[
                 { 

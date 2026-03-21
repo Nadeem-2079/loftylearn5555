@@ -50,7 +50,7 @@ export default function DetailPage({ course, enrolled, saved, onEnroll, onSave, 
       </div>
 
       {/* CONTENT GRID */}
-      <div className="mob-col mob-pad" style={{ padding: "60px 5%", maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 380px", gap: 60, width: "100%" }}>
+      <div className="mob-grid mob-pad" style={{ padding: "60px 5%", maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 380px", gap: 60, width: "100%" }}>
 
         {/* LEFT COLUMN: DETAILS */}
         <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>

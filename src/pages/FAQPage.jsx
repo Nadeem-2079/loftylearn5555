@@ -132,8 +132,8 @@ export default function FAQPage({ onNav }) {
           flexWrap: "wrap"
         }}>
           <div>
-            <h3 style={s.display(22, { marginBottom: 8 })}>Still have a specific query?</h3>
-            <p style={{ color: T.muted, fontSize: 14 }}>Our engineering support team usually responds within 12 hours.</p>
+            <h3 style={s.display(22, { marginBottom: 8 })}>Got Technical Doubts?</h3>
+            <p style={{ color: T.muted, fontSize: 14 }}>Connect directly with our platform architects to resolve complex queries.</p>
           </div>
           <button style={{
             padding: "14px 28px",
@@ -149,7 +149,7 @@ export default function FAQPage({ onNav }) {
           }}
             onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
             onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}>
-            Open Support Ticket
+            Contact Technical Support
           </button>
         </div>
 

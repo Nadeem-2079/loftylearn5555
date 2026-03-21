@@ -8,12 +8,14 @@ export const GLOBAL_CSS = `
   padding: 0;
 }
 
-body {
+html, body, #root {
   font-family: 'Poppins', sans-serif;
   background: #0F0F0F;
   color: #F8F8F8;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 ::selection {
@@ -110,6 +112,16 @@ input, select, textarea {
   to { transform: rotate(360deg); }
 }
 
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .fu {
   animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
 }
@@ -140,8 +152,13 @@ input, select, textarea {
 @media (max-width: 768px) {
   /* Grids and Flexbox */
   .mob-col {
+    display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
+  }
+  .mob-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
   }
   .mob-col-center {
     flex-direction: column !important;
