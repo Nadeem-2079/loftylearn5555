@@ -78,37 +78,45 @@ export default function ContactPage({ onNav }) {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div style={s.card}>
               <div style={{ color: T.white, marginBottom: 4 }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
               </div>
-              <span style={{ color: T.white, fontWeight: 700, fontSize: 15,
-                fontFamily: "'Poppins',sans-serif" }}>General Support</span>
+              <span style={{
+                color: T.white, fontWeight: 700, fontSize: 15,
+                fontFamily: "'Poppins',sans-serif"
+              }}>General Support</span>
               <span style={{ color: T.muted, fontSize: 13 }}>For billing and account queries.</span>
               <span style={{ color: T.green, fontSize: 13 }}>support@loftylearn.com</span>
             </div>
             <div style={s.card}>
               <div style={{ color: T.white, marginBottom: 4 }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
               </div>
-              <span style={{ color: T.white, fontWeight: 700, fontSize: 15,
-                fontFamily: "'Poppins',sans-serif" }}>Global Headquarters</span>
-              <span style={{ color: T.muted, fontSize: 13 }}>LoftyLearn Academy<br />Coimbatore, India</span>
+              <span style={{
+                color: T.white, fontWeight: 700, fontSize: 15,
+                fontFamily: "'Poppins',sans-serif"
+              }}>Global Headquarters</span>
+              <span style={{ color: T.muted, fontSize: 13 }}>LoftyLearn Academy<br />D 701, Angelo Block, Prince Residenzia Apartments, Sriperumbudur. 602117</span>
             </div>
             <div style={s.card}>
               <div style={{ color: T.white, marginBottom: 4 }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
               </div>
-              <span style={{ color: T.white, fontWeight: 700, fontSize: 15,
-                fontFamily: "'Poppins',sans-serif" }}>Response Time</span>
+              <span style={{
+                color: T.white, fontWeight: 700, fontSize: 15,
+                fontFamily: "'Poppins',sans-serif"
+              }}>Response Time</span>
               <span style={{ color: T.muted, fontSize: 13 }}>
-                We typically respond within 4–8 hours during business days.
+                We typically respond within 24 hours
               </span>
             </div>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {["Twitter", "LinkedIn", "YouTube"].map(p => (
-                <button key={p} style={{ padding: "8px 16px", borderRadius: 8,
+                <button key={p} style={{
+                  padding: "8px 16px", borderRadius: 8,
                   background: "transparent", border: `1px solid ${T.border}`,
                   color: T.muted, fontSize: 13, cursor: "pointer",
-                  fontFamily: "'Poppins',sans-serif" }}
+                  fontFamily: "'Poppins',sans-serif"
+                }}
                   onMouseEnter={e => e.currentTarget.style.borderColor = T.green}
                   onMouseLeave={e => e.currentTarget.style.borderColor = T.border}>
                   {p}
@@ -121,17 +129,21 @@ export default function ContactPage({ onNav }) {
           <form onSubmit={handleSubmit} style={{ ...s.card, gap: 18 }}>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16 }}>
               <div>
-                <label style={{ color: T.muted, fontSize: 11, fontWeight: 700,
+                <label style={{
+                  color: T.muted, fontSize: 11, fontWeight: 700,
                   letterSpacing: "0.08em", textTransform: "uppercase",
-                  fontFamily: "'Poppins',sans-serif" }}>Full Name</label>
+                  fontFamily: "'Poppins',sans-serif"
+                }}>Full Name</label>
                 <input style={{ ...s.input, marginTop: 6 }} placeholder="Enter your name"
                   value={form.name} onChange={handleChange("name")}
                   onFocus={handleFocus} onBlur={handleBlur} />
               </div>
               <div>
-                <label style={{ color: T.muted, fontSize: 11, fontWeight: 700,
+                <label style={{
+                  color: T.muted, fontSize: 11, fontWeight: 700,
                   letterSpacing: "0.08em", textTransform: "uppercase",
-                  fontFamily: "'Poppins',sans-serif" }}>Work Email</label>
+                  fontFamily: "'Poppins',sans-serif"
+                }}>Work Email</label>
                 <input style={{ ...s.input, marginTop: 6 }} type="email" placeholder="Enter your email"
                   value={form.email} onChange={handleChange("email")}
                   onFocus={handleFocus} onBlur={handleBlur} />
@@ -139,13 +151,17 @@ export default function ContactPage({ onNav }) {
             </div>
 
             <div>
-              <label style={{ color: T.muted, fontSize: 11, fontWeight: 700,
+              <label style={{
+                color: T.muted, fontSize: 11, fontWeight: 700,
                 letterSpacing: "0.08em", textTransform: "uppercase",
-                fontFamily: "'Poppins',sans-serif" }}>Inquiry Type</label>
-              <select style={{ ...s.input, marginTop: 6, appearance: "none",
+                fontFamily: "'Poppins',sans-serif"
+              }}>Inquiry Type</label>
+              <select style={{
+                ...s.input, marginTop: 6, appearance: "none",
                 backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23777' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")`,
                 backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center",
-                backgroundSize: "12px 8px" }}
+                backgroundSize: "12px 8px"
+              }}
                 value={form.inquiryType} onChange={handleChange("inquiryType")}
                 onFocus={handleFocus} onBlur={handleBlur}>
                 <option>General Question</option>
@@ -156,9 +172,11 @@ export default function ContactPage({ onNav }) {
             </div>
 
             <div>
-              <label style={{ color: T.muted, fontSize: 11, fontWeight: 700,
+              <label style={{
+                color: T.muted, fontSize: 11, fontWeight: 700,
                 letterSpacing: "0.08em", textTransform: "uppercase",
-                fontFamily: "'Poppins',sans-serif" }}>Message</label>
+                fontFamily: "'Poppins',sans-serif"
+              }}>Message</label>
               <textarea style={{ ...s.input, marginTop: 6, minHeight: 120, resize: "vertical" }}
                 placeholder="How can we help you?"
                 value={form.message} onChange={handleChange("message")}
@@ -166,23 +184,29 @@ export default function ContactPage({ onNav }) {
             </div>
 
             <button type="submit" disabled={status === "loading"}
-              style={{ width: "100%", padding: "15px", borderRadius: 12,
+              style={{
+                width: "100%", padding: "15px", borderRadius: 12,
                 background: status === "success" ? "#2d7d0f" : T.green,
                 color: T.black, fontWeight: 700, fontSize: 15,
                 border: "none", cursor: "pointer", fontFamily: "'Poppins',sans-serif",
-                transition: "all 0.2s" }}>
+                transition: "all 0.2s"
+              }}>
               {status === "loading" ? "Sending..." :
-               status === "success" ? "✓ Message Sent!" : "Submit Inquiry →"}
+                status === "success" ? "✓ Message Sent!" : "Submit Inquiry →"}
             </button>
 
             {status === "error" && (
-              <p style={{ color: "#ff4d4d", fontSize: 13, textAlign: "center",
-                fontFamily: "'Poppins',sans-serif" }}>
+              <p style={{
+                color: "#ff4d4d", fontSize: 13, textAlign: "center",
+                fontFamily: "'Poppins',sans-serif"
+              }}>
                 Something went wrong. Please try again.
               </p>
             )}
-            <p style={{ color: T.muted, fontSize: 12, textAlign: "center",
-              fontFamily: "'Poppins',sans-serif" }}>
+            <p style={{
+              color: T.muted, fontSize: 12, textAlign: "center",
+              fontFamily: "'Poppins',sans-serif"
+            }}>
               By submitting this form, you agree to our Privacy Policy.
             </p>
           </form>
