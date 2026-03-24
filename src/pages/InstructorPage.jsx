@@ -76,7 +76,10 @@ export default function InstructorPage() {
                     { val: inst.rating + " ★", label: "Student Rating" }
                   ].map(stat => (
                     <div key={stat.label}>
-                      <div style={{ fontSize: 24, fontWeight: 800, color: T.white, marginBottom: 4 }}>{stat.val}</div>
+                      <div style={{ fontSize: 24, fontWeight: 800, color: T.white, marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                        {inst.rating}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill={T.green} stroke={T.green} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      </div>
                       <div style={{ fontSize: 12, color: T.muted2, textTransform: "uppercase", letterSpacing: 1, fontWeight: 600 }}>{stat.label}</div>
                     </div>
                   ))}

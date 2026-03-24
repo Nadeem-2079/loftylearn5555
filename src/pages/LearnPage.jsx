@@ -71,7 +71,9 @@ export default function LearnPage({ course, enrolled, toast, setEnrolled }) {
 
           {progressPercent === 100 ? (
             <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", background: `linear-gradient(135deg, ${T.surface} 0%, #0a140a 100%)`, borderRadius: 24, border: `1px solid ${T.green}44`, padding: 40, textAlign: "center", boxShadow: `0 20px 60px ${T.green}11` }}>
-              <div style={{ fontSize: 64, marginBottom: 20 }}>🏆</div>
+              <div style={{ color: T.green, marginBottom: 20 }}>
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+              </div>
               <h2 style={{ fontSize: 36, fontWeight: 800, color: T.white, marginBottom: 16 }}>Course Completed!</h2>
               <p style={{ fontSize: 18, color: T.muted, maxWidth: 500, marginBottom: 40, lineHeight: 1.6 }}>
                 You have successfully completed all modules for <strong>{course.title}</strong>.

@@ -28,13 +28,8 @@ export default function Nav({ page, user, onNav, onAuth, onLogout }) {
       <nav style={{ position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)", zIndex: 500, height: 56, width: "calc(100% - 32px)", maxWidth: 1000, background: "rgba(10,10,10,0.85)", backdropFilter: "blur(20px)", borderRadius: 50, border: `1px solid rgba(248,248,248,0.12)`, boxShadow: "0 16px 40px rgba(0,0,0,0.5)" }}>
         <div style={{ padding: "0 16px 0 20px", height: "100%", display: "flex", alignItems: "center", width: "100%", position: "relative" }}>
           {/* Logo - Far Left */}
-          <button onClick={() => handleNav("home")} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'Poppins',sans-serif", fontSize: 17, fontWeight: 800, color: T.white, letterSpacing: "-0.04em", background: "none", border: "none", cursor: "pointer", transition: "all 0.3s", padding: "6px 10px", borderRadius: 12 }}
-            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.08)"}
-            onMouseLeave={e => e.currentTarget.style.background = "none"}>
-            <div style={{ width: 28, height: 28, background: T.green, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <svg width={16} height={16} viewBox="0 0 16 16" fill={T.black}><path d="M2 12 L8 3 L14 12 Z" /></svg>
-            </div>
-            <span>Lofty<span style={{ color: T.green }}>Learn</span></span>
+          <button onClick={() => handleNav("home")} style={{ display: "flex", alignItems: "center", gap: 12, fontFamily: "'Poppins',sans-serif", fontSize: 17, fontWeight: 800, color: T.white, letterSpacing: "-0.04em", background: "none", border: "none", cursor: "pointer", transition: "all 0.3s", padding: "6px 12px", borderRadius: 12 }}>
+            <img src="/logo.png" alt="LoftyLearn Logo" style={{ height: 60, width: "auto", objectFit: "contain" }} />
           </button>
 
           {/* Pages - Perfectly Centered, Hidden on Mobile */}
@@ -84,11 +79,8 @@ export default function Nav({ page, user, onNav, onAuth, onLogout }) {
             
             {/* Header / Close */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'Poppins',sans-serif", fontSize: 18, fontWeight: 800, color: T.white }}>
-                <div style={{ width: 32, height: 32, background: T.green, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width={18} height={18} viewBox="0 0 16 16" fill={T.black}><path d="M2 12 L8 3 L14 12 Z" /></svg>
-                </div>
-                <span>Lofty<span style={{ color: T.green }}>Learn</span></span>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "'Poppins',sans-serif", fontSize: 18, fontWeight: 800, color: T.white }}>
+                <img src="/logo.png" alt="LoftyLearn Logo" style={{ height: 64, width: "auto", objectFit: "contain" }} />
               </div>
               <button onClick={() => setIsOpen(false)} style={{ width: 40, height: 40, borderRadius: "50%", background: "rgba(255,255,255,0.05)", border: `1px solid rgba(255,255,255,0.1)`, color: T.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12" /></svg>

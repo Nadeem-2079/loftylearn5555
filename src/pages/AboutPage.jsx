@@ -52,25 +52,6 @@ export default function AboutPage({ onNav }) {
         </div>
       </section>
 
-      {/* STATS SECTION */}
-      <section style={{ padding: "60px 24px", background: T.surface, borderTop: `1px solid ${T.border}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40, textAlign: "center" }}>
-            {[
-              { number: "50K+", label: "Students Trained", desc: "Engineers worldwide" },
-              { number: "150+", label: "Projects Completed", desc: "Real-world applications" },
-              { number: "95%", label: "Job Placement Rate", desc: "Within 6 months" },
-              { number: "4.9", label: "Average Rating", desc: "Student satisfaction" }
-            ].map(stat => (
-              <div key={stat.label}>
-                <div style={{ ...s.display(48, { color: T.green }), marginBottom: 8 }}>{stat.number}</div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: T.white, marginBottom: 4 }}>{stat.label}</div>
-                <div style={{ fontSize: 14, color: T.muted }}>{stat.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* WHO WE ARE */}
       <section style={{ padding: "80px 24px", maxWidth: 1200, margin: "0 auto" }}>
@@ -131,7 +112,9 @@ export default function AboutPage({ onNav }) {
               <div style={{ position: "absolute", top: 20, left: 20, padding: "6px 14px", background: "rgba(0,0,0,0.6)", borderRadius: 20, fontSize: 11, fontWeight: 800, color: T.green, letterSpacing: 2, border: `1px solid ${T.green}44`, backdropFilter: "blur(8px)", zIndex: 10 }}>FOUNDER</div>
               
               <div style={{ textAlign: "center", color: T.muted2, zIndex: 2 }}>
-                <div style={{ fontSize: 48, marginBottom: 16, filter: "grayscale(100%) opacity(0.5)" }}>👤</div>
+                <div style={{ color: T.white, marginBottom: 16 }}>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
                 <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 3, fontWeight: 700 }}>Profile Image Slot</div>
                 <div style={{ fontSize: 10, color: T.border, marginTop: 8 }}>(Ready for upload)</div>
               </div>

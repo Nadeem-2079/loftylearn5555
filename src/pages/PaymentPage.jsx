@@ -90,8 +90,8 @@ export default function PaymentPage({ course, workshop, user, onComplete, onAuth
       <div style={{ position: "absolute", top: "10%", left: "50%", transform: "translate(-50%, 0)", width: "50vw", height: "50vw", background: `radial-gradient(circle, ${T.green}18 0%, transparent 50%)`, pointerEvents: "none", zIndex: 0 }} />
 
       <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-        <div style={{ width: 80, height: 80, borderRadius: "50%", background: `rgba(93,214,44,0.1)`, border: `1px solid ${T.green}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px" }}>
-          <span style={{ fontSize: 32 }}>🔐</span>
+        <div style={{ width: 80, height: 80, borderRadius: "50%", background: `rgba(93,214,44,0.1)`, border: `1px solid ${T.green}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", color: T.green }}>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
 
         <h1 style={{ fontSize: 40, fontWeight: 900, color: T.white, marginBottom: 16, fontFamily: "'Poppins', sans-serif", letterSpacing: "-0.02em" }}>

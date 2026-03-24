@@ -27,7 +27,7 @@ export default function EnrollCard({ course, isEnrolled, isSaved, onEnroll, onPa
           onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
           onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
         />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)" }} />
+        <div style={{ position: "absolute", inset: 0, backgrFwhatsaound: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%)" }} />
         <div style={{ position: "absolute", zIndex: 2, width: 72, height: 72, borderRadius: "50%", background: T.green, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, color: T.black, fontWeight: 700, transition: "transform 0.2s" }}>▶</div>
       </div>
       <div style={{ padding: 22 }}>

@@ -92,7 +92,7 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
                 padding: "6px 14px", borderRadius: 100, border: `1px solid ${T.green}33`
               }}>Professional Systems Academy</span>
             </div>
-            
+
             {/* Main Headline */}
             <h1 style={{
               ...s.display(60),
@@ -115,7 +115,7 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
             }}>
               Architect robust embedded systems with an elite curriculum built strictly for hardcore industry engineers and system developers.
             </p>
-            
+
             {/* Glass Pill Callout */}
             <div style={{ display: "inline-flex", alignItems: "center", gap: 16, background: "rgba(255,255,255,0.03)", padding: "16px 24px", borderRadius: 16, border: `1px solid rgba(255,255,255,0.08)`, backdropFilter: "blur(10px)" }}>
               <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${T.green}22`, display: "flex", alignItems: "center", justifyContent: "center", color: T.green }}>
@@ -129,10 +129,10 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
 
           {/* RIGHT: PROFESSIONAL IMAGE + BUTTONS */}
           <div className="mob-col-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
-          
+
             {/* Hero Image Container */}
             <div className="mob-hero-img" style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", height: 400, zIndex: 1, paddingBottom: 16 }}>
-              
+
               {/* Bright core backlight glow */}
               <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translateX(-50%)", width: "90%", height: "90%", background: `radial-gradient(circle, ${T.green}20 0%, transparent 70%)`, filter: "blur(50px)", zIndex: 0 }} />
 
@@ -166,42 +166,42 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
                 />
                 {/* Internal Bottom Fade blending image into frame */}
                 <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 160, background: "linear-gradient(to top, rgba(10,10,10,1) 0%, transparent 100%)", pointerEvents: "none" }} />
-                
+
                 {/* Top reflection highlight */}
                 <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(to right, transparent, rgba(255,255,255,0.5), transparent)`, pointerEvents: "none" }} />
               </div>
 
               {/* R. Aravindan Badge */}
-            <div style={{
-              position: "absolute",
-              bottom: -12,
-              left: "50%",
-              transform: "translateX(-50%)",
-              background: "rgba(10,10,10,0.95)",
-              backdropFilter: "blur(24px)",
-              border: `1px solid rgba(255,255,255,0.18)`,
-              padding: "10px 24px",
-              borderRadius: "100px",
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              boxShadow: `0 20px 40px rgba(0,0,0,0.9), 0 0 40px rgba(93,214,44,0.25)`,
-              zIndex: 10,
-              whiteSpace: "nowrap"
-            }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.green, boxShadow: `0 0 12px ${T.green}` }} />
-              <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-                <span style={{ color: T.white, fontSize: 16, fontWeight: 800, letterSpacing: "-0.02em" }}>R. Aravindan</span>
-                <span style={{ color: T.green, fontSize: 10, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.9 }}>Lead Teacher</span>
+              <div style={{
+                position: "absolute",
+                bottom: -12,
+                left: "50%",
+                transform: "translateX(-50%)",
+                background: "rgba(10,10,10,0.95)",
+                backdropFilter: "blur(24px)",
+                border: `1px solid rgba(255,255,255,0.18)`,
+                padding: "10px 24px",
+                borderRadius: "100px",
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                boxShadow: `0 20px 40px rgba(0,0,0,0.9), 0 0 40px rgba(93,214,44,0.25)`,
+                zIndex: 10,
+                whiteSpace: "nowrap"
+              }}>
+                <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.green, boxShadow: `0 0 12px ${T.green}` }} />
+                <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                  <span style={{ color: T.white, fontSize: 16, fontWeight: 800, letterSpacing: "-0.02em" }}>R. Aravindan</span>
+                  <span style={{ color: T.green, fontSize: 10, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.9 }}>Lead Trainer</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* CTA BUTTONS MOVED BELOW IMAGE */}
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", position: "relative", zIndex: 10 }}>
-            <button style={{ ...s.btnPrimary({ padding: "14px 28px", fontSize: 14 }), boxShadow: `0 12px 24px rgba(93,214,44,0.2)` }} onClick={() => onAuth("signup")}>Register Now</button>
-            <button style={{ ...s.btnGhost({ padding: "13px 28px", fontSize: 14 }) }} onClick={() => onNav("courses")}>Browse Curriculum</button>
-          </div>
+            {/* CTA BUTTONS MOVED BELOW IMAGE */}
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap", justifyContent: "center", position: "relative", zIndex: 10 }}>
+              <button style={{ ...s.btnPrimary({ padding: "14px 28px", fontSize: 14 }), boxShadow: `0 12px 24px rgba(93,214,44,0.2)` }} onClick={() => onAuth("signup")}>Register Now</button>
+              <button style={{ ...s.btnGhost({ padding: "13px 28px", fontSize: 14 }) }} onClick={() => onNav("courses")}>Browse Curriculum</button>
+            </div>
           </div>
         </div>
       </section>
@@ -261,8 +261,8 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
               <Eyebrow style={{ color: T.green }}>Core Programs</Eyebrow>
               <h2 className="mob-text-h2" style={s.display(42, { color: T.white })}>Featured Curriculum</h2>
             </div>
-            <button 
-              style={{ ...s.btnGhost({ padding: "12px 28px", borderRadius: 100, fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }), background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.15)`, color: T.white }} 
+            <button
+              style={{ ...s.btnGhost({ padding: "12px 28px", borderRadius: 100, fontSize: 13, textTransform: "uppercase", letterSpacing: 1 }), background: "rgba(255,255,255,0.03)", border: `1px solid rgba(255,255,255,0.15)`, color: T.white }}
               onMouseEnter={e => { e.currentTarget.style.background = T.white; e.currentTarget.style.color = T.black; e.currentTarget.style.transform = "scale(1.05)"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.03)"; e.currentTarget.style.color = T.white; e.currentTarget.style.transform = "scale(1)"; }}
               onClick={() => onNav("courses")}>
@@ -270,25 +270,25 @@ export default function HomePage({ onCourse, onAuth, onNav, toast }) {
             </button>
           </div>
           <div style={{ textAlign: "center", padding: "80px 24px", background: "rgba(255,255,255,0.02)", border: `1px solid rgba(255,255,255,0.05)`, borderRadius: 24, position: "relative", overflow: "hidden" }}>
-             <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "400px", height: "400px", background: `radial-gradient(circle, ${T.green}18 0%, transparent 60%)`, pointerEvents: "none", zIndex: 0 }} />
-             
-             <div style={{ position: "relative", zIndex: 1 }}>
-               <h3 style={{ fontSize: 28, fontWeight: 800, color: T.white, marginBottom: 12 }}>Curriculum Modules</h3>
-               <p style={{ fontSize: 16, color: T.muted, marginBottom: 32 }}>We are currently engineering highly specialized, industry-grade modules for bare-metal mastery.</p>
-               
-               {/* Animated Loading Element */}
-               <div style={{ display: "flex", justifyContent: "center" }}>
-                 <div style={{ position: "relative", width: 60, height: 60 }}>
-                   <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: `2px dashed rgba(255,255,255,0.2)`, animation: "spin 10s linear infinite" }} />
-                   <div style={{ position: "absolute", inset: 8, borderRadius: "50%", border: `2px solid ${T.green}`, borderTopColor: "transparent", borderBottomColor: "transparent", animation: "spin 3s ease-in-out infinite reverse", boxShadow: `0 0 20px ${T.green}44` }} />
-                   <div style={{ position: "absolute", inset: 24, borderRadius: "50%", background: T.green, boxShadow: `0 0 15px ${T.green}` }} />
-                 </div>
-               </div>
+            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "400px", height: "400px", background: `radial-gradient(circle, ${T.green}18 0%, transparent 60%)`, pointerEvents: "none", zIndex: 0 }} />
 
-               <div style={{ marginTop: 24, fontSize: 12, color: T.green, fontFamily: "'Roboto Mono', monospace", textTransform: "uppercase", letterSpacing: 2 }}>
-                 Status: Compiling Syllabus... Coming Soon
-               </div>
-             </div>
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <h3 style={{ fontSize: 28, fontWeight: 800, color: T.white, marginBottom: 12 }}>Curriculum Modules</h3>
+              <p style={{ fontSize: 16, color: T.muted, marginBottom: 32 }}>We are currently engineering highly specialized, industry-grade modules for bare-metal mastery.</p>
+
+              {/* Animated Loading Element */}
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <div style={{ position: "relative", width: 60, height: 60 }}>
+                  <div style={{ position: "absolute", inset: 0, borderRadius: "50%", border: `2px dashed rgba(255,255,255,0.2)`, animation: "spin 10s linear infinite" }} />
+                  <div style={{ position: "absolute", inset: 8, borderRadius: "50%", border: `2px solid ${T.green}`, borderTopColor: "transparent", borderBottomColor: "transparent", animation: "spin 3s ease-in-out infinite reverse", boxShadow: `0 0 20px ${T.green}44` }} />
+                  <div style={{ position: "absolute", inset: 24, borderRadius: "50%", background: T.green, boxShadow: `0 0 15px ${T.green}` }} />
+                </div>
+              </div>
+
+              <div style={{ marginTop: 24, fontSize: 12, color: T.green, fontFamily: "'Roboto Mono', monospace", textTransform: "uppercase", letterSpacing: 2 }}>
+                Status: Compiling Syllabus... Coming Soon
+              </div>
+            </div>
           </div>
         </div>
       </section>

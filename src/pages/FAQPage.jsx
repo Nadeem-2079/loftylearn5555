@@ -147,6 +147,7 @@ export default function FAQPage({ onNav }) {
             transition: "all 0.2s",
             whiteSpace: "nowrap"
           }}
+            onClick={() => onNav("contact")}
             onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.05)"}
             onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}>
             Contact Technical Support
